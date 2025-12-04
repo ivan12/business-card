@@ -24,8 +24,6 @@ Uma versão interativa e estilizada de um "business card" em formato de editor J
 
 ![Business Card Screenshot](./assets/screenshot.png)
 
-> **Nota:** sua imagem foi enviada como anexo — salvei o local de referência `assets/screenshot.png` no README. Se a imagem não aparecer automaticamente, salve manualmente o anexo como `assets/screenshot.png`.
-
 ## Demo rápido
 
 Abra o arquivo `index.html` no seu navegador:
@@ -100,4 +98,5 @@ git push -u origin main
 	- adicione validação de URL e mensagens de erro no modal — diga qual opção prefere.
 
 Obrigado — posso ajustar o README para inglês ou adicionar badges (ex.: licença, status) se desejar.
+
 
