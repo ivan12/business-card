@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>business_card.json</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <div class="card-wrapper">
+    <div class="editor-card">
+      <!-- Barra de título -->
+      <div class="titlebar">
+          <div class="traffic-lights">
+            <span class="traffic-light red" data-action="close" role="button" tabindex="0" aria-label="Fechar"></span>
+            <span class="traffic-light yellow" data-action="minimize" role="button" tabindex="0" aria-label="Minimizar"></span>
+            <span class="traffic-light green" data-action="restore" role="button" tabindex="0" aria-label="Restaurar"></span>
+          </div>
+        <div class="titlebar-filename">business-card.json</div>
+         <!--
+            <div class="titlebar-right">
+              <button class="gear-btn" id="gearBtn" aria-label="Editar">⚙</button>
+            </div>
+         -->
+      </div>
+
+      <div class="toolbar">
+        <div class="toolbar-icon"></div>
+        <div class="toolbar-icon download"></div>
+        <div class="toolbar-icon braces"></div>
+      </div>
+
+      <!-- Editor modal -->
+      <div id="editorModal" class="modal hidden">
+        <div id="editorModalContent" class="modal-content" role="dialog" aria-modal="true" aria-labelledby="editorTitle">
+          <div id="editorTitle" style="font-weight:600;margin-bottom:8px;">Editar Business Card</div>
+              <div id="modalDisplayName" style="font-size:13px;color:var(--code-string);margin-bottom:10px;"></div>
+          <div class="modal-field"><label for="inpName">Name</label><input id="inpName" type="text" /></div>
+          <div class="modal-field"><label for="inpTitle">Title</label><input id="inpTitle" type="text" /></div>
+          <div class="modal-field"><label for="inpEmail">Email</label><input id="inpEmail" type="text" /></div>
+          <div class="modal-field"><label for="inpLinkedin">LinkedIn URL</label><input id="inpLinkedin" type="url" /></div>
+          <div class="modal-actions"><button class="btn" id="btnCancel">Cancelar</button><button class="btn primary" id="btnSave">Salvar</button></div>
+        </div>
+      </div>
+
+      <div class="editor-body">
+        <div class="editor-line">
+          <div class="editor-code line-title">business-card.json</div>
+        </div>
+        <div class="editor-line">
+          <div class="editor-line-number">2</div>
+          <div class="editor-code"><span class="token-punct">{</span></div>
+        </div>
+        <div class="editor-line">
+          <div class="editor-line-number">3</div>
+          <div class="editor-code">
+            <span class="token-key">name</span><span class="token-punct">:</span> <a class="json-link" href="https://www.linkedin.com/in/ivan-amorim" target="_blank" rel="noopener noreferrer"><span class="token-string">"Ivan Amorim"</span></a><span class="token-punct">,</span>
+          </div>
+        </div>
+        <div class="editor-line">
+          <div class="editor-line-number">4</div>
+          <div class="editor-code">
+            <span class="token-key">title</span><span class="token-punct">:</span>
+              <span class="token-string">"Front end"</span><span class="token-punct">,</span>
+          </div>
+        </div>
+        <div class="editor-line">
+          <div class="editor-line-number">5</div>
+          <div class="editor-code">
+            <span class="token-key">email</span><span class="token-punct">:</span>
+            <span class="token-string"> "amorim-ivan@hotmail.com"</span><span class="token-punct">,</span>
+          </div>
+        </div>
+        <div class="editor-line">
+          <div class="editor-line-number">6</div>
+          <div class="editor-code">
+            <span class="token-key">linkedin</span><span class="token-punct">:</span>
+            <span class="token-string link-color">"<a href="https://www.linkedin.com/in/ivan-amorim/" target="_blank">Linkedin Ivan</a>"</span>
+          </div>
+        </div>
+        <div class="editor-line">
+          <div class="editor-line-number">7</div>
+          <div class="editor-code"><span class="token-punct">}</span></div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <button id="openBtn" class="open-btn" hidden aria-hidden="true">Open Business Card</button>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

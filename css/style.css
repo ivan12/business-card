@@ -1,0 +1,258 @@
+    :root {
+      --bg-page: #0b0b10;
+      --card-bg: #050816;
+      --card-border: #111827;
+      --titlebar-bg: #050816;
+      --titlebar-text: #e5e7eb;
+      --code-bg: #020617;
+      --code-text: #e5e7eb;
+      --code-key: #f97316;
+      --code-string: #f9a8d4;
+      --code-punct: #9ca3af;
+      --line-number: #4b5563;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #1f2933 0%, #020617 45%, #000 100%);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .card-wrapper {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.85));
+      cursor: grab;
+      touch-action: none;
+    }
+
+    .editor-card {
+      width: 380px;
+      max-width: 90vw;
+      border-radius: 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      overflow: hidden;
+      color: var(--code-text);
+      transition: max-height 220ms ease, box-shadow 220ms ease;
+    }
+
+    .titlebar {
+      display: flex;
+      align-items: center;
+      padding: 8px 12px;
+      background: linear-gradient(to bottom, #111827, #050816);
+      border-bottom: 1px solid #0f172a;
+      font-size: 13px;
+    }
+
+    .traffic-lights {
+      display: flex;
+      gap: 6px;
+      margin-right: 10px;
+    }
+
+    .traffic-light {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.65);
+      cursor: pointer;
+      outline: none;
+    }
+
+    .traffic-light.red { background: #ff5f57; }
+    .traffic-light.yellow { background: #febc2e; }
+    .traffic-light.green { background: #28c840; }
+
+    .titlebar-filename {
+      flex: 1;
+      text-align: center;
+      font-weight: 500;
+      color: var(--titlebar-text);
+    }
+
+    .titlebar-right {
+      width: 40px;
+    }
+
+    /* gear button */
+    .gear-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: linear-gradient(180deg,#0b1220,#0b1220);
+      border: 1px solid #1f2937;
+      color: var(--titlebar-text);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    /* modal editor */
+    .modal {
+      position: fixed;
+      left: 0; top: 0; right: 0; bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(2,6,23,0.6);
+      z-index: 2000;
+    }
+
+    .modal[hidden] { display: none; }
+    .modal.hidden { display: none; }
+
+    .modal-content {
+      width: 360px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 12px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      color: var(--code-text);
+    }
+
+    .modal-content.hidden { display: none; }
+
+    .hidden { display: none; }
+
+    .modal-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 8px; }
+    .modal-field label { font-size: 12px; color: var(--line-number); }
+    .modal-field input { padding: 8px; border-radius: 6px; border: 1px solid #1f2937; background: #020617; color: var(--code-text); }
+    .modal-actions { display:flex; gap:8px; justify-content: flex-end; }
+    .btn { padding: 8px 10px; border-radius: 6px; border: 1px solid #222; background: #0b1220; color: var(--code-text); cursor: pointer; }
+    .btn.primary { background: #0b84ff; border-color: #0764d6; }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      padding: 6px 12px;
+      gap: 6px;
+      background: #020617;
+      border-bottom: 1px solid #0b1120;
+      font-size: 0;
+    }
+
+    .toolbar-icon {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      border: 1px solid #1f2937;
+      background: linear-gradient(145deg, #111827, #020617);
+      position: relative;
+    }
+
+    .toolbar-icon::before,
+    .toolbar-icon::after {
+      content: "";
+      position: absolute;
+      inset: 3px;
+      border-radius: 2px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      opacity: 0.5;
+    }
+
+    .toolbar-icon.download::before {
+      border-top: none;
+    }
+
+    .toolbar-icon.braces::before {
+      border-left: none;
+      border-right: none;
+    }
+
+    .editor-body {
+      padding: 6px 8px 8px;
+      background: radial-gradient(circle at top left, #111827 0%, #020617 40%, #000 100%);
+      font-family: "SF Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
+      font-size: 13px;
+      line-height: 1.05;
+      white-space: pre;
+    }
+
+    .editor-line {
+      display: flex;
+    }
+
+    .editor-line-number {
+      width: 20px;
+      text-align: right;
+      padding-right: 6px;
+      color: var(--line-number);
+      user-select: none;
+      font-size: 12px;
+      line-height: 1.05;
+    }
+
+    .editor-code {
+      flex: 1;
+      white-space: nowrap; 
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .editor-body { overflow-x: auto; }
+
+    .token-key {
+      color: var(--code-key);
+      padding-left: 2rem;
+    }
+
+    .token-string {
+      color: var(--code-string);
+    }
+
+    .token-punct {
+      color: var(--code-punct);
+    }
+
+    .editor-code a.json-link { color: var(--code-string); text-decoration: none; cursor: pointer; }
+
+    .line-title {
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .editor-card.minimized .editor-body .editor-line { display: none; }
+    .editor-card.minimized .editor-body .editor-line:nth-child(1) { display: flex; }
+    .editor-card.minimized { max-height: 56px; }
+
+    .card-wrapper.closed .editor-card { display: none; }
+
+    .open-btn {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      padding: 12px 18px;
+      background: linear-gradient(180deg,#111827,#0b1220);
+      color: var(--code-text);
+      border: 1px solid #222831;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 14px;
+      z-index: 1000;
+    }
+
+    .link-color a {
+      color: #575bff;
+      text-decoration: none;
+    }
+
+    .traffic-light:focus { box-shadow: 0 0 0 3px rgba(99,102,241,0.12); }
