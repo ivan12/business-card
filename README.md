@@ -22,7 +22,8 @@ Uma versão interativa e estilizada de um "business card" em formato de editor J
 
 ## Screenshot
 
-![Business Card Screenshot](./assets/screenshot.png)
+<img width="755" height="625" alt="image" src="https://github.com/user-attachments/assets/6ebfac14-9e23-4e26-b2bc-f5b9c1846020" />
+
 
 ## Demo rápido
 
@@ -98,5 +99,15 @@ git push -u origin main
 	- adicione validação de URL e mensagens de erro no modal — diga qual opção prefere.
 
 Obrigado — posso ajustar o README para inglês ou adicionar badges (ex.: licença, status) se desejar.
+
+## ☕ Buying me a coffee
+
+If you enjoy this project and would like to support its development, consider buying me a coffee!  
+Every coffee helps turn ideas into code, games, and new features. 💛
+
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Support-orange?style=for-the-badge&logo=buy-me-a-coffee)](https://buymeacoffee.com/amorimivan1)
+
+---
+
 
 
